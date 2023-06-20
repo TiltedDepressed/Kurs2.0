@@ -1,0 +1,519 @@
+@import url(reset.css);
+
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+
+html,
+body {
+    font-family: 'Poppins', sans-serif;
+
+    background: #dfd6d6;
+
+    
+
+    /* font-family: 'Roboto', sans-serif; */
+
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1440px;
+    padding: 0 32px;
+}
+
+
+
+.container--header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+
+}
+
+.logo {
+    padding: 10px;
+    width: 80px;
+    height: 80px;
+}
+
+a{
+    color: #000;  
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 54px;
+}
+
+.nav-list__item {
+    text-transform: capitalize;
+    font-size: 25px;
+}
+
+.nav-list__link{
+   transition: 0.4s ease;
+}
+
+.nav-list__link:hover {
+    opacity: 0.8;
+    color: #FFF;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #000;
+}
+
+.nav-list__link-active {
+  color: #0e7dc7;
+
+}
+
+.buscet{ 
+    margin-left: 20px;
+    width: 64px;
+    height: 64px;
+}
+
+.bascketcounter{
+    margin-left: 55px;
+    margin-top: -65px;
+}
+
+.header__title {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 27px;
+    font-weight: bold;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.header__title p{
+  font-weight: 500;
+}
+
+/* card */
+
+.base-grid-container{
+    display: flex;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+.base-grid-container__item {
+    display: inline-block;
+    margin: 10px;
+    background: #FFF;
+    
+}
+
+
+
+
+.card {
+    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+}
+.product-img {
+  
+    width: 265px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+.card-body{
+    padding-bottom: 10px; 
+}
+
+.card-body p{
+    text-align: center;
+}
+.item-title {
+    text-align: center;
+}
+.details-wrapper {
+    display: flex;
+	justify-content: space-between;
+	align-items: center;
+    text-align: center;
+	margin-bottom: 15px;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.items {
+    font-family: 'Merriweather', serif;
+	background: #f2ede7;
+	border-radius: 8px;
+	width: 120px;
+	display: flex;
+    align-items: center;
+	font-size: 18px;
+	height: 30px;
+	overflow: hidden;
+}
+.counter-wrapper {
+
+    width: auto;
+}
+.items__control {
+    padding: 10px;
+    width: 40px;
+	cursor: pointer;
+	transition: 0.2s ease-in;
+	
+}
+
+.items__control:hover {
+    background: #eb5a1e;
+    color: #FFF;
+}
+.items__current {
+    margin-top: 4px;
+    width: 40px;
+}
+.price {
+    text-align: left;
+}
+.price__weight {
+    color: #6c757d!important;
+	font-size: 80%;
+	line-height: 1;
+}
+.price__currency {
+    font-size: 1.5rem;
+	font-weight: 600;
+	line-height: 1;
+}
+.btn {
+display: block;
+margin: 0 auto;
+padding: 5px;
+transition: 0.2s ease-in;  
+}
+
+.btn-outline-warning {
+    color: #eb5a1e;
+    border-color: #eb5a1e;
+    border-radius: 10px;
+}
+
+.btn-outline-warning:hover {
+    color: #FFF;
+    background-color: #eb5a1e;
+    border-color: #eb5a1e;
+}
+.modal {
+    position: fixed; /* фиксированное положение */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5); /* цвет фона */
+    z-index: 1050;
+    opacity: 0; /* по умолчанию модальное окно прозрачно */
+    -webkit-transition: opacity 200ms ease-in; 
+    -moz-transition: opacity 200ms ease-in;
+    transition: opacity 200ms ease-in; /* анимация перехода */
+    pointer-events: none; /* элемент невидим для событий мыши */
+    margin: 0;
+    padding: 0;
+}
+/* при отображении модального окно */
+.modal:target {
+    opacity: 1; /* делаем окно видимым */
+	  pointer-events: auto; /* элемент видим для событий мыши */
+    overflow-y: auto; /* добавляем прокрутку по y, когда элемент не помещается на страницу */
+}
+/* ширина модального окна и его отступы от экрана */
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 10px;
+}
+@media (min-width: 576px) {
+  .modal-dialog {
+      max-width: 500px;
+      margin: 30px auto; /* для отображения модального окна по центру */
+  }
+  .modal-dialog2 {
+      max-width: 1400px;
+      margin: 30px auto; /* для отображения модального окна по центру */
+  }
+
+  .modal-dialog3 {
+    max-width: 800px;
+    margin: 30px auto; /* для отображения модального окна по центру */
+}
+}
+/* свойства для блока, содержащего контент модального окна */ 
+.modal-content {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+    outline: 0;
+    backdrop-filter: blur(11px);
+}
+@media (min-width: 768px) {
+  .modal-content {
+      -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+      box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  }
+}
+/* свойства для заголовка модального окна */
+.modal-header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #eceeef;
+}
+.modal-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.5;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+/* свойства для кнопки "Закрыть" */
+.close {
+    float: right;
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+    text-decoration: none;
+}
+/* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
+.close:focus, .close:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .75;
+}
+/* свойства для блока, содержащего основное содержимое окна */
+.modal-body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;    
+  position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 15px;
+    overflow: hidden;
+}
+
+
+.modal-row{
+display: flex;
+width: 350px;
+margin-top: 15px;
+align-items: center;
+justify-content: space-between;
+}
+.modal-row2{
+padding: 10px;
+display: flex;
+width: 132  0px;
+margin-top: 15px;
+align-items: center;
+justify-content: space-between;
+}
+
+.modal-row2__item{
+    width: 150px;
+}
+.modal-row3__item{
+    width: 200px;
+}
+
+
+.modal-kostil{
+    display: flex;
+    margin-top: 15px;
+}
+.modal-radioinput{
+    color: #000;
+}
+
+.modal-textarea {
+    border: 0.5px solid #000;
+    background-color: #f8f8f9;
+    padding: 10px;
+    border-radius: 15px;
+    margin-left: 15px;
+}
+.modal-input{
+    transition: 0.4s ease-in;
+}
+.modal-input:hover{
+    color: blue;
+}
+
+.footer {
+    margin-top: auto;
+    padding: 60px 0 50px;
+}
+
+.footer__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 27px;
+}
+
+
+
+.social {
+    display: flex;
+    column-gap: 30px;
+    align-items: center;
+}
+
+.copyrigth {
+    font-size: 16px;
+}
+
+.copyrigth p+p {
+    margin-top: 0.5em;
+}
+
+.blue_text{
+    color:rgb(26, 26, 226)
+}
+
+.red_text{
+    color: rgb(196, 31, 31);
+}
+
+.LogOutBtn {
+
+    
+    padding: 5px;
+    border-radius: 10px;
+    transition: 0.4S ease-in;
+}
+
+.LogOutBtn:hover{
+    background-color: #000;
+    color: #FFF;
+}
+
+.adminPanel{
+  font-size: 15px;
+}
+
+.FanatmacanaStavitLike{
+
+    display: flex;
+    justify-content: center;
+   
+}
+.FanatmacanaStavitLike2{
+    border:  2px solid black;
+}
+
+.modal-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.column_macan{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.krinjk{
+  margin-left: 15px;
+  width: 100px;
+}
+
+.krinjk2{
+    margin-right: 15px;
+    width: 100px;
+  }
+
+  .smart-basket__quantity-item{
+    width: 100%;
+    text-align: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.bigtext{
+    font-size: 35px;
+}
+
+.buscketbuttons{
+    padding: 15px;
+}
+
+.blackborder{
+    border: 0.5px solid black;
+    border-radius: 15px;
+}
+
+
+
+
+
+.none {
+	display: none;
+}
+
+
+@media (max-width: 620px) {
+
+ 
+
+
+}
